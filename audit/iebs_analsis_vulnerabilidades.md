@@ -887,9 +887,9 @@ Contract [FP_Token](../contracts/iebs_Faillapop_ERC20.sol#L13-L45) is not in Cap
 
 
  - [ ] ID-76
-Contract [FP_DAO](../contracts/iebs_Faillapop_DAO.sol#L17-L304) is not in CapWords
+Contract [FP_DAO](../contracts/iebs_Faillapop_DAO.sol#L17-L303) is not in CapWords
 
-../contracts/iebs_Faillapop_DAO.sol#L17-L304
+../contracts/iebs_Faillapop_DAO.sol#L17-L303
 
 
 ## similar-names
@@ -915,7 +915,7 @@ Confidence: Medium
 Impact: Informational
 Confidence: High
  - [ ] ID-79
-[FP_DAO.DEFAULT_QUORUM](../contracts/iebs_Faillapop_DAO.sol#L23) is never used in [FP_DAO](../contracts/iebs_Faillapop_DAO.sol#L17-L304)
+[FP_DAO.DEFAULT_QUORUM](../contracts/iebs_Faillapop_DAO.sol#L23) is never used in [FP_DAO](../contracts/iebs_Faillapop_DAO.sol#L17-L303)
 
 ../contracts/iebs_Faillapop_DAO.sol#L23
 
