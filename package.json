@@ -1,10 +1,14 @@
 {
   "name": "hardhat-project",
+  "version": "1.0.0",
+  "description": "Un proyecto Hardhat de ejemplo",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
-    "hardhat": "^2.19.2"
+    "hardhat": "^2.19.3",
+    "slither": "^0.10.0"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^5.0.1"
+    "@openzeppelin/contracts": "^5.0.1",
+    "solc": "^0.8.20"
   }
 }

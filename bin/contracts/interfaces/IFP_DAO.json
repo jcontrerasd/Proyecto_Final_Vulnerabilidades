@@ -1,0 +1,683 @@
+{
+    "contractName": "IFP_DAO",
+    "abi": [
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "disputeId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "cancelDispute",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "disputeId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "castVote",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "disputeID",
+                    "type": "uint256"
+                }
+            ],
+            "name": "checkLottery",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "disputeId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "endDispute",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "itemId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "buyerReasoning",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "sellerReasoning",
+                    "type": "string"
+                }
+            ],
+            "name": "newDispute",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "magicWord",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "newMagicWord",
+                    "type": "string"
+                },
+                {
+                    "internalType": "address",
+                    "name": "newShop",
+                    "type": "address"
+                }
+            ],
+            "name": "updateConfig",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"disputeId\",\"type\":\"uint256\"}],\"name\":\"cancelDispute\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"disputeId\",\"type\":\"uint256\"}],\"name\":\"castVote\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"disputeID\",\"type\":\"uint256\"}],\"name\":\"checkLottery\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"disputeId\",\"type\":\"uint256\"}],\"name\":\"endDispute\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"itemId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"buyerReasoning\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"sellerReasoning\",\"type\":\"string\"}],\"name\":\"newDispute\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"magicWord\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"newMagicWord\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"newShop\",\"type\":\"address\"}],\"name\":\"updateConfig\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Faillapop team :D \",\"custom:ctf\":\"This contract is of JC's mock-audit exercise at https://github.com/jcr-security/solidity-security-teaching-resources\",\"kind\":\"dev\",\"methods\":{\"cancelDispute(uint256)\":{\"params\":{\"disputeId\":\"The ID of the target dispute\"}},\"castVote(uint256)\":{\"params\":{\"disputeId\":\"The ID of the target dispute\"}},\"checkLottery(uint256)\":{\"params\":{\"disputeID\":\"The ID of the target dispute\"}},\"endDispute(uint256)\":{\"params\":{\"disputeId\":\"The ID of the target dispute\"}},\"newDispute(uint256,string,string)\":{\"params\":{\"buyerReasoning\":\"The reasoning of the buyer in favor of the claim\",\"itemId\":\"The ID of the item involved in the dispute\",\"sellerReasoning\":\"The reasoning of the seller against the claim\"}},\"updateConfig(string,string,address)\":{\"params\":{\"magicWord\":\"to authenticate as privileged user\",\"newMagicWord\":\"The new password to access key features\"}}},\"title\":\"Iterface of the FaillaPop voting DAO for disputes\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"cancelDispute(uint256)\":{\"notice\":\"Cancel an ongoing dispute. Either by the buyer or blacklisting (shop contract)\"},\"castVote(uint256)\":{\"notice\":\"Cast a vote on a dispute\"},\"checkLottery(uint256)\":{\"notice\":\"Award NFT to a user if they voten for the winning side\"},\"endDispute(uint256)\":{\"notice\":\"Resolve a finished dispute\"},\"newDispute(uint256,string,string)\":{\"notice\":\"Open a dispute\"},\"updateConfig(string,string,address)\":{\"notice\":\"Update the contract's configuration details\"}},\"notice\":\"The contract allow to vote with FPT tokens on open disputes. If the dispute is resolved in favor of the buyer, the seller have to refund the buyer. If the dispute is resolved in favor of the seller, the sale is closed.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_DAO.sol\":\"IFP_DAO\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_DAO.sol\":{\"keccak256\":\"0x3fd752b93ea1e69c659d25cac7e85d1d778e20ee16e3bf74aeeeef1b8cb0f5d0\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://8fb8cd9aa9c6baffea6fac5209f0578277b5e89bbf41021ab739dfff2a523971\",\"dweb:/ipfs/QmbcRegQcVpy4VhAP5p41mCPMNoab1Bqgnr3NnHzWpRwsC\"]}},\"version\":1}",
+    "bytecode": "",
+    "deployedBytecode": "",
+    "sourceMap": "",
+    "deployedSourceMap": "",
+    "sourcePath": "/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_DAO.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.20+commit.a1b79de6"
+    },
+    "ast": {
+        "absolutePath": "/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_DAO.sol",
+        "exportedSymbols": {
+            "IFP_DAO": [
+                2298
+            ]
+        },
+        "id": 2299,
+        "license": "GPL-3.0",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 2250,
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.8",
+                    ".13"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "38:24:4"
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "canonicalName": "IFP_DAO",
+                "contractDependencies": [],
+                "contractKind": "interface",
+                "documentation": {
+                    "id": 2251,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "64:467:4",
+                    "text": "@title Iterface of the FaillaPop voting DAO for disputes\n@author Faillapop team :D \n@notice The contract allow to vote with FPT tokens on open disputes. If the dispute is resolved in favor of the buyer,\nthe seller have to refund the buyer. If the dispute is resolved in favor of the seller, the sale is closed.\n@custom:ctf This contract is of JC's mock-audit exercise at https://github.com/jcr-security/solidity-security-teaching-resources"
+                },
+                "fullyImplemented": false,
+                "id": 2298,
+                "linearizedBaseContracts": [
+                    2298
+                ],
+                "name": "IFP_DAO",
+                "nameLocation": "542:7:4",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "documentation": {
+                            "id": 2252,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "557:199:4",
+                            "text": "@notice Update the contract's configuration details\n@param magicWord to authenticate as privileged user\n@param newMagicWord The new password to access key features"
+                        },
+                        "functionSelector": "a58af6e4",
+                        "id": 2261,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "updateConfig",
+                        "nameLocation": "770:12:4",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2259,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2254,
+                                    "mutability": "mutable",
+                                    "name": "magicWord",
+                                    "nameLocation": "808:9:4",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2261,
+                                    "src": "792:25:4",
+                                    "stateVariable": false,
+                                    "storageLocation": "calldata",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_string_calldata_ptr",
+                                        "typeString": "string"
+                                    },
+                                    "typeName": {
+                                        "id": 2253,
+                                        "name": "string",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "792:6:4",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_string_storage_ptr",
+                                            "typeString": "string"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                },
+                                {
+                                    "constant": false,
+                                    "id": 2256,
+                                    "mutability": "mutable",
+                                    "name": "newMagicWord",
+                                    "nameLocation": "844:12:4",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2261,
+                                    "src": "828:28:4",
+                                    "stateVariable": false,
+                                    "storageLocation": "calldata",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_string_calldata_ptr",
+                                        "typeString": "string"
+                                    },
+                                    "typeName": {
+                                        "id": 2255,
+                                        "name": "string",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "828:6:4",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_string_storage_ptr",
+                                            "typeString": "string"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                },
+                                {
+                                    "constant": false,
+                                    "id": 2258,
+                                    "mutability": "mutable",
+                                    "name": "newShop",
+                                    "nameLocation": "875:7:4",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2261,
+                                    "src": "867:15:4",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 2257,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "867:7:4",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "782:106:4"
+                        },
+                        "returnParameters": {
+                            "id": 2260,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "897:0:4"
+                        },
+                        "scope": 2298,
+                        "src": "761:137:4",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2262,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "904:106:4",
+                            "text": "@notice Cast a vote on a dispute\n@param disputeId The ID of the target dispute"
+                        },
+                        "functionSelector": "3eb76b9c",
+                        "id": 2267,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "castVote",
+                        "nameLocation": "1024:8:4",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2265,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2264,
+                                    "mutability": "mutable",
+                                    "name": "disputeId",
+                                    "nameLocation": "1038:9:4",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2267,
+                                    "src": "1033:14:4",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 2263,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1033:4:4",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "1032:16:4"
+                        },
+                        "returnParameters": {
+                            "id": 2266,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1057:0:4"
+                        },
+                        "scope": 2298,
+                        "src": "1015:43:4",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2268,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "1064:263:4",
+                            "text": "@notice Open a dispute\n@param itemId The ID of the item involved in the dispute\n@param buyerReasoning The reasoning of the buyer in favor of the claim\n@param sellerReasoning The reasoning of the seller against the claim"
+                        },
+                        "functionSelector": "24ffa411",
+                        "id": 2279,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "newDispute",
+                        "nameLocation": "1341:10:4",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2275,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2270,
+                                    "mutability": "mutable",
+                                    "name": "itemId",
+                                    "nameLocation": "1367:6:4",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2279,
+                                    "src": "1362:11:4",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 2269,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1362:4:4",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                },
+                                {
+                                    "constant": false,
+                                    "id": 2272,
+                                    "mutability": "mutable",
+                                    "name": "buyerReasoning",
+                                    "nameLocation": "1400:14:4",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2279,
+                                    "src": "1384:30:4",
+                                    "stateVariable": false,
+                                    "storageLocation": "calldata",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_string_calldata_ptr",
+                                        "typeString": "string"
+                                    },
+                                    "typeName": {
+                                        "id": 2271,
+                                        "name": "string",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1384:6:4",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_string_storage_ptr",
+                                            "typeString": "string"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                },
+                                {
+                                    "constant": false,
+                                    "id": 2274,
+                                    "mutability": "mutable",
+                                    "name": "sellerReasoning",
+                                    "nameLocation": "1441:15:4",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2279,
+                                    "src": "1425:31:4",
+                                    "stateVariable": false,
+                                    "storageLocation": "calldata",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_string_calldata_ptr",
+                                        "typeString": "string"
+                                    },
+                                    "typeName": {
+                                        "id": 2273,
+                                        "name": "string",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1425:6:4",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_string_storage_ptr",
+                                            "typeString": "string"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "1351:111:4"
+                        },
+                        "returnParameters": {
+                            "id": 2278,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2277,
+                                    "mutability": "mutable",
+                                    "name": "",
+                                    "nameLocation": "-1:-1:-1",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2279,
+                                    "src": "1481:4:4",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 2276,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1481:4:4",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "1480:6:4"
+                        },
+                        "scope": 2298,
+                        "src": "1332:155:4",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2280,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "1493:108:4",
+                            "text": "@notice Resolve a finished dispute\n@param disputeId The ID of the target dispute"
+                        },
+                        "functionSelector": "5187b7a0",
+                        "id": 2285,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "endDispute",
+                        "nameLocation": "1615:10:4",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2283,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2282,
+                                    "mutability": "mutable",
+                                    "name": "disputeId",
+                                    "nameLocation": "1631:9:4",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2285,
+                                    "src": "1626:14:4",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 2281,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1626:4:4",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "1625:16:4"
+                        },
+                        "returnParameters": {
+                            "id": 2284,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1650:0:4"
+                        },
+                        "scope": 2298,
+                        "src": "1606:45:4",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2286,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "1658:160:4",
+                            "text": "@notice Cancel an ongoing dispute. Either by the buyer or blacklisting (shop contract)\n@param disputeId The ID of the target dispute"
+                        },
+                        "functionSelector": "df02935c",
+                        "id": 2291,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "cancelDispute",
+                        "nameLocation": "1832:13:4",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2289,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2288,
+                                    "mutability": "mutable",
+                                    "name": "disputeId",
+                                    "nameLocation": "1851:9:4",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2291,
+                                    "src": "1846:14:4",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 2287,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1846:4:4",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "1845:16:4"
+                        },
+                        "returnParameters": {
+                            "id": 2290,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1870:0:4"
+                        },
+                        "scope": 2298,
+                        "src": "1823:48:4",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2292,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "1882:136:4",
+                            "text": "@notice Award NFT to a user if they voten for the winning side\n@param disputeID The ID of the target dispute"
+                        },
+                        "functionSelector": "f43acb52",
+                        "id": 2297,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "checkLottery",
+                        "nameLocation": "2032:12:4",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2295,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2294,
+                                    "mutability": "mutable",
+                                    "name": "disputeID",
+                                    "nameLocation": "2050:9:4",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2297,
+                                    "src": "2045:14:4",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 2293,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "2045:4:4",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "2044:16:4"
+                        },
+                        "returnParameters": {
+                            "id": 2296,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "2069:0:4"
+                        },
+                        "scope": 2298,
+                        "src": "2023:47:4",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    }
+                ],
+                "scope": 2299,
+                "src": "532:1540:4",
+                "usedErrors": [],
+                "usedEvents": []
+            }
+        ],
+        "src": "38:2034:4"
+    },
+    "functionHashes": {
+        "cancelDispute(uint256)": "df02935c",
+        "castVote(uint256)": "3eb76b9c",
+        "checkLottery(uint256)": "f43acb52",
+        "endDispute(uint256)": "5187b7a0",
+        "newDispute(uint256,string,string)": "24ffa411",
+        "updateConfig(string,string,address)": "a58af6e4"
+    },
+    "gasEstimates": null
+}

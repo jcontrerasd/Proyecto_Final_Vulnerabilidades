@@ -1,0 +1,661 @@
+{
+    "contractName": "IFP_Vault",
+    "abi": [
+        {
+            "inputs": [],
+            "name": "claimRewards",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "user",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "amount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "doLock",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "badUser",
+                    "type": "address"
+                }
+            ],
+            "name": "doSlash",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "doStake",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "user",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "amount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "doUnlock",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "amount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "doUnstake",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "newDao",
+                    "type": "address"
+                },
+                {
+                    "internalType": "address",
+                    "name": "newShop",
+                    "type": "address"
+                },
+                {
+                    "internalType": "address",
+                    "name": "newNft",
+                    "type": "address"
+                }
+            ],
+            "name": "updateConfig",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"claimRewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"doLock\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"badUser\",\"type\":\"address\"}],\"name\":\"doSlash\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"doStake\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"doUnlock\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"doUnstake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newDao\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"newShop\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"newNft\",\"type\":\"address\"}],\"name\":\"updateConfig\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Faillapop team :D \",\"custom:ctf\":\"This contract is part of JC's mock-audit exercise at https://github.com/jcr-security/solidity-security-teaching-resources\",\"kind\":\"dev\",\"methods\":{\"doLock(address,uint256)\":{\"params\":{\"amount\":\"The amount of funds to lock\",\"user\":\"The address of the user that is selling\"}},\"doSlash(address)\":{\"params\":{\"badUser\":\"The address of the malicious user to be slashed\"}},\"doUnstake(uint256)\":{\"params\":{\"amount\":\"The amount of funds to unstake \"}},\"updateConfig(address,address,address)\":{\"params\":{\"newDao\":\"The address of the DAO contract\",\"newNft\":\"The address of the powerseller NFT contract\",\"newShop\":\"The address of the Shop contract\"}}},\"title\":\"Interface of FaillaPop vault\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"claimRewards()\":{\"notice\":\"Claim rewards generated by slashing malicious users.  First checks if the user is elegible through the checkPrivilege function that will revert if not. \"},\"doLock(address,uint256)\":{\"notice\":\"Lock funds for selling purposes, the funds are locked until the sale is completed\"},\"doSlash(address)\":{\"notice\":\"Slash funds if the user is considered malicious by the DAO\"},\"doStake()\":{\"notice\":\"Stake attached funds in the vault for later locking, the users must do it on their own\"},\"doUnlock(address,uint256)\":{\"notice\":\"Unlock funds after the sale is completed\"},\"doUnstake(uint256)\":{\"notice\":\"Unstake unlocked funds from the vault, the user must do it on their own\"},\"updateConfig(address,address,address)\":{\"notice\":\"Modify configuration parameters, only the owner can do it\"}},\"notice\":\"The contract allows anyone to stake and unstake Ether. When a seller publish a new item in the shop, the funds are locked during the sale. If the user is considered malicious by the DAO, the funds are slashed. \",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_Vault.sol\":\"IFP_Vault\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_Vault.sol\":{\"keccak256\":\"0x305358f20b031956c27595bf878339b490ff15d16bbd1bb575313f306943b629\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://a4c2dd8447b678de6511c941f0e74ab6f3cb51b42d50f3e7bd79b38f5e907af2\",\"dweb:/ipfs/QmUXNEZWvgMud7Mu6qwNgwRgqQ3jRR4DidQRV2ZPrAi7V6\"]}},\"version\":1}",
+    "bytecode": "",
+    "deployedBytecode": "",
+    "sourceMap": "",
+    "deployedSourceMap": "",
+    "sourcePath": "/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_Vault.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.20+commit.a1b79de6"
+    },
+    "ast": {
+        "absolutePath": "/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_Vault.sol",
+        "exportedSymbols": {
+            "IFP_Vault": [
+                2449
+            ]
+        },
+        "id": 2450,
+        "license": "GPL-3.0",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 2401,
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.8",
+                    ".13"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "38:24:7"
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "canonicalName": "IFP_Vault",
+                "contractDependencies": [],
+                "contractKind": "interface",
+                "documentation": {
+                    "id": 2402,
+                    "nodeType": "StructuredDocumentation",
+                    "src": "65:447:7",
+                    "text": "@title Interface of FaillaPop vault\n@author Faillapop team :D \n@notice The contract allows anyone to stake and unstake Ether. When a seller publish a new item\nin the shop, the funds are locked during the sale. If the user is considered malicious\nby the DAO, the funds are slashed. \n@custom:ctf This contract is part of JC's mock-audit exercise at https://github.com/jcr-security/solidity-security-teaching-resources"
+                },
+                "fullyImplemented": false,
+                "id": 2449,
+                "linearizedBaseContracts": [
+                    2449
+                ],
+                "name": "IFP_Vault",
+                "nameLocation": "523:9:7",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "documentation": {
+                            "id": 2403,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "540:97:7",
+                            "text": "@notice Stake attached funds in the vault for later locking, the users must do it on their own"
+                        },
+                        "functionSelector": "4efa7e70",
+                        "id": 2406,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "doStake",
+                        "nameLocation": "651:7:7",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2404,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "658:2:7"
+                        },
+                        "returnParameters": {
+                            "id": 2405,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "677:0:7"
+                        },
+                        "scope": 2449,
+                        "src": "642:36:7",
+                        "stateMutability": "payable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2407,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "686:135:7",
+                            "text": "@notice Unstake unlocked funds from the vault, the user must do it on their own\n@param amount The amount of funds to unstake "
+                        },
+                        "functionSelector": "4697fbfa",
+                        "id": 2412,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "doUnstake",
+                        "nameLocation": "835:9:7",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2410,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2409,
+                                    "mutability": "mutable",
+                                    "name": "amount",
+                                    "nameLocation": "850:6:7",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2412,
+                                    "src": "845:11:7",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 2408,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "845:4:7",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "844:13:7"
+                        },
+                        "returnParameters": {
+                            "id": 2411,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "866:0:7"
+                        },
+                        "scope": 2449,
+                        "src": "826:41:7",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2413,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "874:219:7",
+                            "text": "@notice Lock funds for selling purposes, the funds are locked until the sale is completed\n@param user The address of the user that is selling\n@param amount The amount of funds to lock"
+                        },
+                        "functionSelector": "1e89e058",
+                        "id": 2420,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "doLock",
+                        "nameLocation": "1107:6:7",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2418,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2415,
+                                    "mutability": "mutable",
+                                    "name": "user",
+                                    "nameLocation": "1122:4:7",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2420,
+                                    "src": "1114:12:7",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 2414,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1114:7:7",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                },
+                                {
+                                    "constant": false,
+                                    "id": 2417,
+                                    "mutability": "mutable",
+                                    "name": "amount",
+                                    "nameLocation": "1133:6:7",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2420,
+                                    "src": "1128:11:7",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 2416,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1128:4:7",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "1113:27:7"
+                        },
+                        "returnParameters": {
+                            "id": 2419,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1149:0:7"
+                        },
+                        "scope": 2449,
+                        "src": "1098:52:7",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2421,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "1157:51:7",
+                            "text": "@notice Unlock funds after the sale is completed"
+                        },
+                        "functionSelector": "076622e2",
+                        "id": 2428,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "doUnlock",
+                        "nameLocation": "1222:8:7",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2426,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2423,
+                                    "mutability": "mutable",
+                                    "name": "user",
+                                    "nameLocation": "1239:4:7",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2428,
+                                    "src": "1231:12:7",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 2422,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1231:7:7",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                },
+                                {
+                                    "constant": false,
+                                    "id": 2425,
+                                    "mutability": "mutable",
+                                    "name": "amount",
+                                    "nameLocation": "1250:6:7",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2428,
+                                    "src": "1245:11:7",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 2424,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1245:4:7",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "1230:27:7"
+                        },
+                        "returnParameters": {
+                            "id": 2427,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1266:0:7"
+                        },
+                        "scope": 2449,
+                        "src": "1213:54:7",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2429,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "1274:139:7",
+                            "text": "@notice Slash funds if the user is considered malicious by the DAO\n@param badUser The address of the malicious user to be slashed"
+                        },
+                        "functionSelector": "74cb9ed8",
+                        "id": 2434,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "doSlash",
+                        "nameLocation": "1427:7:7",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2432,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2431,
+                                    "mutability": "mutable",
+                                    "name": "badUser",
+                                    "nameLocation": "1443:7:7",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2434,
+                                    "src": "1435:15:7",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 2430,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1435:7:7",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "1434:17:7"
+                        },
+                        "returnParameters": {
+                            "id": 2433,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1460:0:7"
+                        },
+                        "scope": 2449,
+                        "src": "1418:43:7",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2435,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "1467:261:7",
+                            "text": "@notice Modify configuration parameters, only the owner can do it\n@param newDao The address of the DAO contract\n@param newShop The address of the Shop contract\n@param newNft The address of the powerseller NFT contract"
+                        },
+                        "functionSelector": "11c9a94d",
+                        "id": 2444,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "updateConfig",
+                        "nameLocation": "1742:12:7",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2442,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2437,
+                                    "mutability": "mutable",
+                                    "name": "newDao",
+                                    "nameLocation": "1763:6:7",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2444,
+                                    "src": "1755:14:7",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 2436,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1755:7:7",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                },
+                                {
+                                    "constant": false,
+                                    "id": 2439,
+                                    "mutability": "mutable",
+                                    "name": "newShop",
+                                    "nameLocation": "1779:7:7",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2444,
+                                    "src": "1771:15:7",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 2438,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1771:7:7",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                },
+                                {
+                                    "constant": false,
+                                    "id": 2441,
+                                    "mutability": "mutable",
+                                    "name": "newNft",
+                                    "nameLocation": "1796:6:7",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2444,
+                                    "src": "1788:14:7",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 2440,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1788:7:7",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "1754:49:7"
+                        },
+                        "returnParameters": {
+                            "id": 2443,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1812:0:7"
+                        },
+                        "scope": 2449,
+                        "src": "1733:80:7",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2445,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "1821:184:7",
+                            "text": "@notice Claim rewards generated by slashing malicious users. \nFirst checks if the user is elegible through the checkPrivilege function that will revert if not. "
+                        },
+                        "functionSelector": "372500ab",
+                        "id": 2448,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "claimRewards",
+                        "nameLocation": "2019:12:7",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2446,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "2031:2:7"
+                        },
+                        "returnParameters": {
+                            "id": 2447,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "2042:0:7"
+                        },
+                        "scope": 2449,
+                        "src": "2010:33:7",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    }
+                ],
+                "scope": 2450,
+                "src": "513:1532:7",
+                "usedErrors": [],
+                "usedEvents": []
+            }
+        ],
+        "src": "38:2007:7"
+    },
+    "functionHashes": {
+        "claimRewards()": "372500ab",
+        "doLock(address,uint256)": "1e89e058",
+        "doSlash(address)": "74cb9ed8",
+        "doStake()": "4efa7e70",
+        "doUnlock(address,uint256)": "076622e2",
+        "doUnstake(uint256)": "4697fbfa",
+        "updateConfig(address,address,address)": "11c9a94d"
+    },
+    "gasEstimates": null
+}

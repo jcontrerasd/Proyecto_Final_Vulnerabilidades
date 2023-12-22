@@ -1,0 +1,325 @@
+{
+    "contractName": "IFP_NFT",
+    "abi": [
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "user",
+                    "type": "address"
+                }
+            ],
+            "name": "checkPrivilege",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "user",
+                    "type": "address"
+                }
+            ],
+            "name": "mintCoolNFT",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "totalPowersellers",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"checkPrivilege\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"mintCoolNFT\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalPowersellers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"checkPrivilege(address)\":{\"notice\":\"Checks if the address holds a Trusted badge\"},\"mintCoolNFT(address)\":{\"notice\":\"Mints a cool NFT for the user\"},\"totalPowersellers()\":{\"notice\":\"Returns the total number of users that received a PowerSeller badge\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_NFT.sol\":\"IFP_NFT\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_NFT.sol\":{\"keccak256\":\"0x78ef00718a042ded89416989fc5deb91877172ed28cbe5dd08ebe87d3b80329e\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://5184ec4711fce6c8e2393ba596b06926b7a34a5f36ec8f5e3203e733ecd14fe0\",\"dweb:/ipfs/QmT4tTbstQucSRsNg6RCLxFwG2hsfGDY5kCJ1ueWJyBxjL\"]}},\"version\":1}",
+    "bytecode": "",
+    "deployedBytecode": "",
+    "sourceMap": "",
+    "deployedSourceMap": "",
+    "sourcePath": "/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_NFT.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.20+commit.a1b79de6"
+    },
+    "ast": {
+        "absolutePath": "/Users/jaimecontreras/Downloads/Proyecto_Final/Proyecto/contracts/interfaces/IFP_NFT.sol",
+        "exportedSymbols": {
+            "IFP_NFT": [
+                2321
+            ]
+        },
+        "id": 2322,
+        "license": "GPL-3.0",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 2300,
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.8",
+                    ".13"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "38:24:5"
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "canonicalName": "IFP_NFT",
+                "contractDependencies": [],
+                "contractKind": "interface",
+                "fullyImplemented": false,
+                "id": 2321,
+                "linearizedBaseContracts": [
+                    2321
+                ],
+                "name": "IFP_NFT",
+                "nameLocation": "74:7:5",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "documentation": {
+                            "id": 2301,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "88:78:5",
+                            "text": "@notice Returns the total number of users that received a PowerSeller badge"
+                        },
+                        "functionSelector": "85aa2e1b",
+                        "id": 2306,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "totalPowersellers",
+                        "nameLocation": "180:17:5",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2302,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "197:2:5"
+                        },
+                        "returnParameters": {
+                            "id": 2305,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2304,
+                                    "mutability": "mutable",
+                                    "name": "",
+                                    "nameLocation": "-1:-1:-1",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2306,
+                                    "src": "223:7:5",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 2303,
+                                        "name": "uint256",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "223:7:5",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "222:9:5"
+                        },
+                        "scope": 2321,
+                        "src": "171:61:5",
+                        "stateMutability": "view",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2307,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "238:54:5",
+                            "text": "@notice Checks if the address holds a Trusted badge"
+                        },
+                        "functionSelector": "9d886a68",
+                        "id": 2314,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "checkPrivilege",
+                        "nameLocation": "306:14:5",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2310,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2309,
+                                    "mutability": "mutable",
+                                    "name": "user",
+                                    "nameLocation": "329:4:5",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2314,
+                                    "src": "321:12:5",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 2308,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "321:7:5",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "320:14:5"
+                        },
+                        "returnParameters": {
+                            "id": 2313,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2312,
+                                    "mutability": "mutable",
+                                    "name": "",
+                                    "nameLocation": "-1:-1:-1",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2314,
+                                    "src": "358:4:5",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_bool",
+                                        "typeString": "bool"
+                                    },
+                                    "typeName": {
+                                        "id": 2311,
+                                        "name": "bool",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "358:4:5",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_bool",
+                                            "typeString": "bool"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "357:6:5"
+                        },
+                        "scope": 2321,
+                        "src": "297:67:5",
+                        "stateMutability": "view",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "documentation": {
+                            "id": 2315,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "370:40:5",
+                            "text": "@notice Mints a cool NFT for the user"
+                        },
+                        "functionSelector": "74e4fe36",
+                        "id": 2320,
+                        "implemented": false,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "mintCoolNFT",
+                        "nameLocation": "424:11:5",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 2318,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 2317,
+                                    "mutability": "mutable",
+                                    "name": "user",
+                                    "nameLocation": "444:4:5",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 2320,
+                                    "src": "436:12:5",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 2316,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "436:7:5",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "435:14:5"
+                        },
+                        "returnParameters": {
+                            "id": 2319,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "458:0:5"
+                        },
+                        "scope": 2321,
+                        "src": "415:44:5",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    }
+                ],
+                "scope": 2322,
+                "src": "64:397:5",
+                "usedErrors": [],
+                "usedEvents": []
+            }
+        ],
+        "src": "38:423:5"
+    },
+    "functionHashes": {
+        "checkPrivilege(address)": "9d886a68",
+        "mintCoolNFT(address)": "74e4fe36",
+        "totalPowersellers()": "85aa2e1b"
+    },
+    "gasEstimates": null
+}

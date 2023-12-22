@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.20;
 
 import "./interfaces/IFP_Shop.sol";
 import "./interfaces/IFP_NFT.sol";
