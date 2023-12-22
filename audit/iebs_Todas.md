@@ -1,25 +1,24 @@
 Summary
  - [arbitrary-send-eth](#arbitrary-send-eth) (2 results) (High)
- - [reentrancy-eth](#reentrancy-eth) (6 results) (High)
+ - [reentrancy-eth](#reentrancy-eth) (5 results) (High)
  - [uninitialized-state](#uninitialized-state) (1 results) (High)
  - [reentrancy-no-eth](#reentrancy-no-eth) (4 results) (Medium)
  - [unchecked-lowlevel](#unchecked-lowlevel) (1 results) (Medium)
- - [events-maths](#events-maths) (1 results) (Low)
  - [missing-zero-check](#missing-zero-check) (4 results) (Low)
- - [reentrancy-benign](#reentrancy-benign) (5 results) (Low)
- - [reentrancy-events](#reentrancy-events) (12 results) (Low)
+ - [reentrancy-benign](#reentrancy-benign) (4 results) (Low)
+ - [reentrancy-events](#reentrancy-events) (11 results) (Low)
  - [timestamp](#timestamp) (1 results) (Low)
  - [pragma](#pragma) (1 results) (Informational)
  - [dead-code](#dead-code) (1 results) (Informational)
- - [solc-version](#solc-version) (21 results) (Informational)
+ - [solc-version](#solc-version) (20 results) (Informational)
  - [low-level-calls](#low-level-calls) (5 results) (Informational)
  - [missing-inheritance](#missing-inheritance) (1 results) (Informational)
- - [naming-convention](#naming-convention) (20 results) (Informational)
+ - [naming-convention](#naming-convention) (16 results) (Informational)
  - [similar-names](#similar-names) (1 results) (Informational)
  - [too-many-digits](#too-many-digits) (1 results) (Informational)
  - [unused-state](#unused-state) (1 results) (Informational)
  - [constable-states](#constable-states) (1 results) (Optimization)
- - [immutable-states](#immutable-states) (4 results) (Optimization)
+ - [immutable-states](#immutable-states) (3 results) (Optimization)
 ## arbitrary-send-eth
 Impact: High
 Confidence: Medium
@@ -116,20 +115,6 @@ Reentrancy in [FP_Shop.closeSale(uint256,bool)](../contracts/iebs_Faillapop_shop
 
 
  - [ ] ID-4
-Reentrancy in [VulnerableBank.distributeBenefits(uint256)](../contracts/VulnerableBank.sol#L93-L113):
-	External calls:
-	- [returnRewards(percentage)](../contracts/VulnerableBank.sol#L95)
-		- [(success) = address(msg.sender).call{value: reward}()](../contracts/VulnerableBank.sol#L49)
-	State variables written after the call(s):
-	- [total_invested -= amount](../contracts/VulnerableBank.sol#L107)
-	[VulnerableBank.total_invested](../contracts/VulnerableBank.sol#L20) can be used in cross function reentrancies:
-	- [VulnerableBank.distributeBenefits(uint256)](../contracts/VulnerableBank.sol#L93-L113)
-	- [VulnerableBank.returnRewards(uint256)](../contracts/VulnerableBank.sol#L45-L53)
-
-../contracts/VulnerableBank.sol#L93-L113
-
-
- - [ ] ID-5
 Reentrancy in [FP_Shop.returnItem(uint256)](../contracts/iebs_Faillapop_shop.sol#L306-L315):
 	External calls:
 	- [reimburse(itemId)](../contracts/iebs_Faillapop_shop.sol#L313)
@@ -166,7 +151,7 @@ Reentrancy in [FP_Shop.returnItem(uint256)](../contracts/iebs_Faillapop_shop.sol
 ../contracts/iebs_Faillapop_shop.sol#L306-L315
 
 
- - [ ] ID-6
+ - [ ] ID-5
 Reentrancy in [FP_Vault.claimRewards()](../contracts/iebs_Faillapop_vault.sol#L184-L204):
 	External calls:
 	- [nftContract.call(abi.encodeWithSignature(checkPrivilege(address),msg.sender))](../contracts/iebs_Faillapop_vault.sol#L186-L191)
@@ -182,7 +167,7 @@ Reentrancy in [FP_Vault.claimRewards()](../contracts/iebs_Faillapop_vault.sol#L1
 ../contracts/iebs_Faillapop_vault.sol#L184-L204
 
 
- - [ ] ID-7
+ - [ ] ID-6
 Reentrancy in [FP_Shop.removeMaliciousSale(uint256)](../contracts/iebs_Faillapop_shop.sol#L321-L334):
 	External calls:
 	- [reimburse(itemId)](../contracts/iebs_Faillapop_shop.sol#L325)
@@ -218,7 +203,7 @@ Reentrancy in [FP_Shop.removeMaliciousSale(uint256)](../contracts/iebs_Faillapop
 ## uninitialized-state
 Impact: High
 Confidence: High
- - [ ] ID-8
+ - [ ] ID-7
 [FP_DAO.quorum](../contracts/iebs_Faillapop_DAO.sol#L63) is never initialized. It is used in:
 	- [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L196-L214)
 
@@ -228,7 +213,7 @@ Confidence: High
 ## reentrancy-no-eth
 Impact: Medium
 Confidence: Medium
- - [ ] ID-9
+ - [ ] ID-8
 Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L196-L214):
 	External calls:
 	- [buyerWins(itemId)](../contracts/iebs_Faillapop_DAO.sol#L204)
@@ -248,7 +233,7 @@ Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L
 ../contracts/iebs_Faillapop_DAO.sol#L196-L214
 
 
- - [ ] ID-10
+ - [ ] ID-9
 Reentrancy in [FP_Shop.modifySale(uint256,string,string,uint256)](../contracts/iebs_Faillapop_shop.sol#L232-L252):
 	External calls:
 	- [vaultContract.doUnlock(msg.sender,priceDifference)](../contracts/iebs_Faillapop_shop.sol#L240)
@@ -312,7 +297,7 @@ Reentrancy in [FP_Shop.modifySale(uint256,string,string,uint256)](../contracts/i
 ../contracts/iebs_Faillapop_shop.sol#L232-L252
 
 
- - [ ] ID-11
+ - [ ] ID-10
 Reentrancy in [FP_Shop.closeDispute(uint256)](../contracts/iebs_Faillapop_shop.sol#L414-L420):
 	External calls:
 	- [daoContract.cancelDispute(dId)](../contracts/iebs_Faillapop_shop.sol#L417)
@@ -329,7 +314,7 @@ Reentrancy in [FP_Shop.closeDispute(uint256)](../contracts/iebs_Faillapop_shop.s
 ../contracts/iebs_Faillapop_shop.sol#L414-L420
 
 
- - [ ] ID-12
+ - [ ] ID-11
 Reentrancy in [FP_Shop.endDispute(uint256)](../contracts/iebs_Faillapop_shop.sol#L182-L199):
 	External calls:
 	- [closeDispute(itemId)](../contracts/iebs_Faillapop_shop.sol#L187)
@@ -368,47 +353,37 @@ Reentrancy in [FP_Shop.endDispute(uint256)](../contracts/iebs_Faillapop_shop.sol
 ## unchecked-lowlevel
 Impact: Medium
 Confidence: Medium
- - [ ] ID-13
+ - [ ] ID-12
 [FP_Vault.claimRewards()](../contracts/iebs_Faillapop_vault.sol#L184-L204) ignores return value by [nftContract.call(abi.encodeWithSignature(checkPrivilege(address),msg.sender))](../contracts/iebs_Faillapop_vault.sol#L186-L191)
 
 ../contracts/iebs_Faillapop_vault.sol#L184-L204
 
 
-## events-maths
-Impact: Low
-Confidence: Medium
- - [ ] ID-14
-[VulnerableBank.updateConfig(uint256)](../contracts/VulnerableBank.sol#L75-L77) should emit an event for: 
-	- [distribute_period = n_blocks](../contracts/VulnerableBank.sol#L76) 
-
-../contracts/VulnerableBank.sol#L75-L77
-
-
 ## missing-zero-check
 Impact: Low
 Confidence: Medium
- - [ ] ID-15
+ - [ ] ID-13
 [FP_Vault.updateConfig(address,address,address).newNft](../contracts/iebs_Faillapop_vault.sol#L171) lacks a zero-check on :
 		- [nftContract = newNft](../contracts/iebs_Faillapop_vault.sol#L174)
 
 ../contracts/iebs_Faillapop_vault.sol#L171
 
 
- - [ ] ID-16
+ - [ ] ID-14
 [FP_Vault.constructor(address,address,address).token](../contracts/iebs_Faillapop_vault.sol#L93) lacks a zero-check on :
 		- [nftContract = token](../contracts/iebs_Faillapop_vault.sol#L98)
 
 ../contracts/iebs_Faillapop_vault.sol#L93
 
 
- - [ ] ID-17
+ - [ ] ID-15
 [FP_DAO.updateConfig(string,string,address,address).newShop](../contracts/iebs_Faillapop_DAO.sol#L129) lacks a zero-check on :
 		- [shop_addr = newShop](../contracts/iebs_Faillapop_DAO.sol#L133)
 
 ../contracts/iebs_Faillapop_DAO.sol#L129
 
 
- - [ ] ID-18
+ - [ ] ID-16
 [FP_DAO.constructor(string,address,address,address).shop](../contracts/iebs_Faillapop_DAO.sol#L111) lacks a zero-check on :
 		- [shop_addr = shop](../contracts/iebs_Faillapop_DAO.sol#L113)
 
@@ -418,7 +393,7 @@ Confidence: Medium
 ## reentrancy-benign
 Impact: Low
 Confidence: Medium
- - [ ] ID-19
+ - [ ] ID-17
 Reentrancy in [FP_Vault.distributeSlashing(uint256)](../contracts/iebs_Faillapop_vault.sol#L210-L218):
 	External calls:
 	- [(data) = nftContract.call(abi.encodeWithSignature(totalPowersellers()))](../contracts/iebs_Faillapop_vault.sol#L213)
@@ -428,7 +403,7 @@ Reentrancy in [FP_Vault.distributeSlashing(uint256)](../contracts/iebs_Faillapop
 ../contracts/iebs_Faillapop_vault.sol#L210-L218
 
 
- - [ ] ID-20
+ - [ ] ID-18
 Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L196-L214):
 	External calls:
 	- [sellerWins(itemId)](../contracts/iebs_Faillapop_DAO.sol#L207)
@@ -439,7 +414,7 @@ Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L
 ../contracts/iebs_Faillapop_DAO.sol#L196-L214
 
 
- - [ ] ID-21
+ - [ ] ID-19
 Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L196-L214):
 	External calls:
 	- [buyerWins(itemId)](../contracts/iebs_Faillapop_DAO.sol#L204)
@@ -450,18 +425,7 @@ Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L
 ../contracts/iebs_Faillapop_DAO.sol#L196-L214
 
 
- - [ ] ID-22
-Reentrancy in [VulnerableBank.distributeBenefits(uint256)](../contracts/VulnerableBank.sol#L93-L113):
-	External calls:
-	- [returnRewards(percentage)](../contracts/VulnerableBank.sol#L95)
-		- [(success) = address(msg.sender).call{value: reward}()](../contracts/VulnerableBank.sol#L49)
-	State variables written after the call(s):
-	- [latest_distribution = block.number](../contracts/VulnerableBank.sol#L103)
-
-../contracts/VulnerableBank.sol#L93-L113
-
-
- - [ ] ID-23
+ - [ ] ID-20
 Reentrancy in [FP_Shop.newSale(uint256,string,string,uint256)](../contracts/iebs_Faillapop_shop.sol#L208-L223):
 	External calls:
 	- [vaultContract.doLock(msg.sender,price)](../contracts/iebs_Faillapop_shop.sol#L218)
@@ -474,7 +438,7 @@ Reentrancy in [FP_Shop.newSale(uint256,string,string,uint256)](../contracts/iebs
 ## reentrancy-events
 Impact: Low
 Confidence: Medium
- - [ ] ID-24
+ - [ ] ID-21
 Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L196-L214):
 	External calls:
 	- [buyerWins(itemId)](../contracts/iebs_Faillapop_DAO.sol#L204)
@@ -487,7 +451,7 @@ Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L
 ../contracts/iebs_Faillapop_DAO.sol#L196-L214
 
 
- - [ ] ID-25
+ - [ ] ID-22
 Reentrancy in [FP_Vault.doSlash(address)](../contracts/iebs_Faillapop_vault.sol#L154-L163):
 	External calls:
 	- [distributeSlashing(amount)](../contracts/iebs_Faillapop_vault.sol#L160)
@@ -498,7 +462,7 @@ Reentrancy in [FP_Vault.doSlash(address)](../contracts/iebs_Faillapop_vault.sol#
 ../contracts/iebs_Faillapop_vault.sol#L154-L163
 
 
- - [ ] ID-26
+ - [ ] ID-23
 Reentrancy in [FP_Vault.doUnstake(uint256)](../contracts/iebs_Faillapop_vault.sol#L115-L124):
 	External calls:
 	- [(success) = address(msg.sender).call{value: amount}()](../contracts/iebs_Faillapop_vault.sol#L120)
@@ -508,7 +472,7 @@ Reentrancy in [FP_Vault.doUnstake(uint256)](../contracts/iebs_Faillapop_vault.so
 ../contracts/iebs_Faillapop_vault.sol#L115-L124
 
 
- - [ ] ID-27
+ - [ ] ID-24
 Reentrancy in [FP_Shop.modifySale(uint256,string,string,uint256)](../contracts/iebs_Faillapop_shop.sol#L232-L252):
 	External calls:
 	- [vaultContract.doUnlock(msg.sender,priceDifference)](../contracts/iebs_Faillapop_shop.sol#L240)
@@ -519,7 +483,7 @@ Reentrancy in [FP_Shop.modifySale(uint256,string,string,uint256)](../contracts/i
 ../contracts/iebs_Faillapop_shop.sol#L232-L252
 
 
- - [ ] ID-28
+ - [ ] ID-25
 Reentrancy in [FP_Shop.blacklist(address)](../contracts/iebs_Faillapop_shop.sol#L364-L370):
 	External calls:
 	- [vaultContract.doSlash(user)](../contracts/iebs_Faillapop_shop.sol#L367)
@@ -529,7 +493,7 @@ Reentrancy in [FP_Shop.blacklist(address)](../contracts/iebs_Faillapop_shop.sol#
 ../contracts/iebs_Faillapop_shop.sol#L364-L370
 
 
- - [ ] ID-29
+ - [ ] ID-26
 Reentrancy in [FP_Shop.reimburse(uint256)](../contracts/iebs_Faillapop_shop.sol#L377-L386):
 	External calls:
 	- [(success) = address(buyer).call{value: price}()](../contracts/iebs_Faillapop_shop.sol#L382)
@@ -539,18 +503,7 @@ Reentrancy in [FP_Shop.reimburse(uint256)](../contracts/iebs_Faillapop_shop.sol#
 ../contracts/iebs_Faillapop_shop.sol#L377-L386
 
 
- - [ ] ID-30
-Reentrancy in [VulnerableBank.distributeBenefits(uint256)](../contracts/VulnerableBank.sol#L93-L113):
-	External calls:
-	- [returnRewards(percentage)](../contracts/VulnerableBank.sol#L95)
-		- [(success) = address(msg.sender).call{value: reward}()](../contracts/VulnerableBank.sol#L49)
-	Event emitted after the call(s):
-	- [Benefits(amount)](../contracts/VulnerableBank.sol#L112)
-
-../contracts/VulnerableBank.sol#L93-L113
-
-
- - [ ] ID-31
+ - [ ] ID-27
 Reentrancy in [FP_Shop.removeMaliciousSale(uint256)](../contracts/iebs_Faillapop_shop.sol#L321-L334):
 	External calls:
 	- [reimburse(itemId)](../contracts/iebs_Faillapop_shop.sol#L325)
@@ -580,7 +533,7 @@ Reentrancy in [FP_Shop.removeMaliciousSale(uint256)](../contracts/iebs_Faillapop
 ../contracts/iebs_Faillapop_shop.sol#L321-L334
 
 
- - [ ] ID-32
+ - [ ] ID-28
 Reentrancy in [FP_Vault.claimRewards()](../contracts/iebs_Faillapop_vault.sol#L184-L204):
 	External calls:
 	- [nftContract.call(abi.encodeWithSignature(checkPrivilege(address),msg.sender))](../contracts/iebs_Faillapop_vault.sol#L186-L191)
@@ -593,7 +546,7 @@ Reentrancy in [FP_Vault.claimRewards()](../contracts/iebs_Faillapop_vault.sol#L1
 ../contracts/iebs_Faillapop_vault.sol#L184-L204
 
 
- - [ ] ID-33
+ - [ ] ID-29
 Reentrancy in [FP_Shop.newSale(uint256,string,string,uint256)](../contracts/iebs_Faillapop_shop.sol#L208-L223):
 	External calls:
 	- [vaultContract.doLock(msg.sender,price)](../contracts/iebs_Faillapop_shop.sol#L218)
@@ -603,7 +556,7 @@ Reentrancy in [FP_Shop.newSale(uint256,string,string,uint256)](../contracts/iebs
 ../contracts/iebs_Faillapop_shop.sol#L208-L223
 
 
- - [ ] ID-34
+ - [ ] ID-30
 Reentrancy in [FP_Shop.openDispute(uint256,string)](../contracts/iebs_Faillapop_shop.sol#L394-L407):
 	External calls:
 	- [dispute.disputeId = daoContract.newDispute(itemId,dispute.buyerReasoning,dispute.sellerReasoning)](../contracts/iebs_Faillapop_shop.sol#L399-L403)
@@ -613,7 +566,7 @@ Reentrancy in [FP_Shop.openDispute(uint256,string)](../contracts/iebs_Faillapop_
 ../contracts/iebs_Faillapop_shop.sol#L394-L407
 
 
- - [ ] ID-35
+ - [ ] ID-31
 Reentrancy in [FP_DAO.lotteryNFT(address)](../contracts/iebs_Faillapop_DAO.sol#L251-L267):
 	External calls:
 	- [nftContract.mintCoolNFT(user)](../contracts/iebs_Faillapop_DAO.sol#L262)
@@ -626,7 +579,7 @@ Reentrancy in [FP_DAO.lotteryNFT(address)](../contracts/iebs_Faillapop_DAO.sol#L
 ## timestamp
 Impact: Low
 Confidence: Medium
- - [ ] ID-36
+ - [ ] ID-32
 [FP_DAO.lotteryNFT(address)](../contracts/iebs_Faillapop_DAO.sol#L251-L267) uses timestamp for comparisons
 	Dangerous comparisons:
 	- [randomNumber < THRESHOLD](../contracts/iebs_Faillapop_DAO.sol#L261)
@@ -637,10 +590,9 @@ Confidence: Medium
 ## pragma
 Impact: Informational
 Confidence: High
- - [ ] ID-37
+ - [ ] ID-33
 Different versions of Solidity are used:
 	- Version used: ['^0.8.13', '^0.8.20']
-	- [^0.8.13](../contracts/VulnerableBank.sol#L2)
 	- [^0.8.13](../contracts/interfaces/IFP_DAO.sol#L3)
 	- [^0.8.13](../contracts/interfaces/IFP_NFT.sol#L3)
 	- [^0.8.13](../contracts/interfaces/IFP_Shop.sol#L3)
@@ -661,13 +613,13 @@ Different versions of Solidity are used:
 	- [^0.8.20](../contracts/iebs_Faillapop_shop.sol#L2)
 	- [^0.8.20](../contracts/iebs_Faillapop_vault.sol#L2)
 
-../contracts/VulnerableBank.sol#L2
+../contracts/interfaces/IFP_DAO.sol#L3
 
 
 ## dead-code
 Impact: Informational
 Confidence: Medium
- - [ ] ID-38
+ - [ ] ID-34
 [FP_Token._beforeTokenTransfer(address,address,uint256)](../contracts/iebs_Faillapop_ERC20.sol#L36-L43) is never used and should be removed
 
 ../contracts/iebs_Faillapop_ERC20.sol#L36-L43
@@ -676,124 +628,118 @@ Confidence: Medium
 ## solc-version
 Impact: Informational
 Confidence: High
- - [ ] ID-39
+ - [ ] ID-35
 Pragma version[^0.8.20](../contracts/iebs_Faillapop_shop.sol#L2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../contracts/iebs_Faillapop_shop.sol#L2
 
 
- - [ ] ID-40
+ - [ ] ID-36
 Pragma version[^0.8.20](../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol#L4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol#L4
 
 
- - [ ] ID-41
+ - [ ] ID-37
 Pragma version[^0.8.20](../node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol#L4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol#L4
 
 
- - [ ] ID-42
+ - [ ] ID-38
 Pragma version[^0.8.20](../node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol#L3) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol#L3
 
 
- - [ ] ID-43
+ - [ ] ID-39
 Pragma version[^0.8.20](../contracts/iebs_Faillapop_vault.sol#L2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../contracts/iebs_Faillapop_vault.sol#L2
 
 
- - [ ] ID-44
+ - [ ] ID-40
 Pragma version[^0.8.13](../contracts/interfaces/IFP_DAO.sol#L3) allows old versions
 
 ../contracts/interfaces/IFP_DAO.sol#L3
 
 
- - [ ] ID-45
+ - [ ] ID-41
 Pragma version[^0.8.20](../node_modules/@openzeppelin/contracts/utils/Pausable.sol#L4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../node_modules/@openzeppelin/contracts/utils/Pausable.sol#L4
 
 
- - [ ] ID-46
+ - [ ] ID-42
 Pragma version[^0.8.20](../node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol#L4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol#L4
 
 
- - [ ] ID-47
+ - [ ] ID-43
 Pragma version[^0.8.20](../node_modules/@openzeppelin/contracts/access/AccessControl.sol#L4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../node_modules/@openzeppelin/contracts/access/AccessControl.sol#L4
 
 
- - [ ] ID-48
+ - [ ] ID-44
 Pragma version[^0.8.20](../node_modules/@openzeppelin/contracts/access/IAccessControl.sol#L4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../node_modules/@openzeppelin/contracts/access/IAccessControl.sol#L4
 
 
- - [ ] ID-49
+ - [ ] ID-45
 solc-0.8.20 is not recommended for deployment
 
- - [ ] ID-50
+ - [ ] ID-46
 Pragma version[^0.8.13](../contracts/interfaces/IFP_Shop.sol#L3) allows old versions
 
 ../contracts/interfaces/IFP_Shop.sol#L3
 
 
- - [ ] ID-51
-Pragma version[^0.8.13](../contracts/VulnerableBank.sol#L2) allows old versions
-
-../contracts/VulnerableBank.sol#L2
-
-
- - [ ] ID-52
+ - [ ] ID-47
 Pragma version[^0.8.13](../contracts/interfaces/IFP_Vault.sol#L3) allows old versions
 
 ../contracts/interfaces/IFP_Vault.sol#L3
 
 
- - [ ] ID-53
+ - [ ] ID-48
 Pragma version[^0.8.20](../node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol#L4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol#L4
 
 
- - [ ] ID-54
+ - [ ] ID-49
 Pragma version[^0.8.20](../node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol#L4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol#L4
 
 
- - [ ] ID-55
+ - [ ] ID-50
 Pragma version[^0.8.20](../node_modules/@openzeppelin/contracts/utils/Context.sol#L4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../node_modules/@openzeppelin/contracts/utils/Context.sol#L4
 
 
- - [ ] ID-56
+ - [ ] ID-51
 Pragma version[^0.8.20](../contracts/iebs_Faillapop_ERC20.sol#L2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../contracts/iebs_Faillapop_ERC20.sol#L2
 
 
- - [ ] ID-57
+ - [ ] ID-52
 Pragma version[^0.8.20](../contracts/iebs_Faillapop_DAO.sol#L2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../contracts/iebs_Faillapop_DAO.sol#L2
 
 
- - [ ] ID-58
+ - [ ] ID-53
 Pragma version[^0.8.20](../node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol#L4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
 
 ../node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol#L4
 
 
- - [ ] ID-59
+ - [ ] ID-54
 Pragma version[^0.8.13](../contracts/interfaces/IFP_NFT.sol#L3) allows old versions
 
 ../contracts/interfaces/IFP_NFT.sol#L3
@@ -802,14 +748,14 @@ Pragma version[^0.8.13](../contracts/interfaces/IFP_NFT.sol#L3) allows old versi
 ## low-level-calls
 Impact: Informational
 Confidence: High
- - [ ] ID-60
+ - [ ] ID-55
 Low level call in [FP_Shop.closeSale(uint256,bool)](../contracts/iebs_Faillapop_shop.sol#L344-L357):
 	- [(success) = address(seller).call{value: price}()](../contracts/iebs_Faillapop_shop.sol#L350)
 
 ../contracts/iebs_Faillapop_shop.sol#L344-L357
 
 
- - [ ] ID-61
+ - [ ] ID-56
 Low level call in [FP_Vault.claimRewards()](../contracts/iebs_Faillapop_vault.sol#L184-L204):
 	- [nftContract.call(abi.encodeWithSignature(checkPrivilege(address),msg.sender))](../contracts/iebs_Faillapop_vault.sol#L186-L191)
 	- [(success) = address(msg.sender).call{value: amount}()](../contracts/iebs_Faillapop_vault.sol#L198)
@@ -817,21 +763,21 @@ Low level call in [FP_Vault.claimRewards()](../contracts/iebs_Faillapop_vault.so
 ../contracts/iebs_Faillapop_vault.sol#L184-L204
 
 
- - [ ] ID-62
+ - [ ] ID-57
 Low level call in [FP_Vault.doUnstake(uint256)](../contracts/iebs_Faillapop_vault.sol#L115-L124):
 	- [(success) = address(msg.sender).call{value: amount}()](../contracts/iebs_Faillapop_vault.sol#L120)
 
 ../contracts/iebs_Faillapop_vault.sol#L115-L124
 
 
- - [ ] ID-63
+ - [ ] ID-58
 Low level call in [FP_Shop.reimburse(uint256)](../contracts/iebs_Faillapop_shop.sol#L377-L386):
 	- [(success) = address(buyer).call{value: price}()](../contracts/iebs_Faillapop_shop.sol#L382)
 
 ../contracts/iebs_Faillapop_shop.sol#L377-L386
 
 
- - [ ] ID-64
+ - [ ] ID-59
 Low level call in [FP_Vault.distributeSlashing(uint256)](../contracts/iebs_Faillapop_vault.sol#L210-L218):
 	- [(data) = nftContract.call(abi.encodeWithSignature(totalPowersellers()))](../contracts/iebs_Faillapop_vault.sol#L213)
 
@@ -841,7 +787,7 @@ Low level call in [FP_Vault.distributeSlashing(uint256)](../contracts/iebs_Faill
 ## missing-inheritance
 Impact: Informational
 Confidence: High
- - [ ] ID-65
+ - [ ] ID-60
 [FP_Vault](../contracts/iebs_Faillapop_vault.sol#L18-L244) should inherit from [IFP_Vault](../contracts/interfaces/IFP_Vault.sol#L14-L56)
 
 ../contracts/iebs_Faillapop_vault.sol#L18-L244
@@ -850,130 +796,106 @@ Confidence: High
 ## naming-convention
 Impact: Informational
 Confidence: High
- - [ ] ID-66
+ - [ ] ID-61
 Function [FP_Shop.query_dispute(uint256)](../contracts/iebs_Faillapop_shop.sol#L429-L431) is not in mixedCase
 
 ../contracts/iebs_Faillapop_shop.sol#L429-L431
 
 
- - [ ] ID-67
+ - [ ] ID-62
 Variable [FP_Shop.disputed_items](../contracts/iebs_Faillapop_shop.sol#L81) is not in mixedCase
 
 ../contracts/iebs_Faillapop_shop.sol#L81
 
 
- - [ ] ID-68
+ - [ ] ID-63
 Parameter [FP_Shop.setVacationMode(bool)._vacationMode](../contracts/iebs_Faillapop_shop.sol#L272) is not in mixedCase
 
 ../contracts/iebs_Faillapop_shop.sol#L272
 
 
- - [ ] ID-69
+ - [ ] ID-64
 Function [FP_DAO.query_dispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L298-L300) is not in mixedCase
 
 ../contracts/iebs_Faillapop_DAO.sol#L298-L300
 
 
- - [ ] ID-70
+ - [ ] ID-65
 Function [FP_Shop.query_sale(uint256)](../contracts/iebs_Faillapop_shop.sol#L433-L435) is not in mixedCase
 
 ../contracts/iebs_Faillapop_shop.sol#L433-L435
 
 
- - [ ] ID-71
+ - [ ] ID-66
 Variable [FP_Vault.max_claimable_amount](../contracts/iebs_Faillapop_vault.sol#L43) is not in mixedCase
 
 ../contracts/iebs_Faillapop_vault.sol#L43
 
 
- - [ ] ID-72
+ - [ ] ID-67
 Contract [IFP_Shop](../contracts/interfaces/IFP_Shop.sol#L14-L90) is not in CapWords
 
 ../contracts/interfaces/IFP_Shop.sol#L14-L90
 
 
- - [ ] ID-73
+ - [ ] ID-68
 Variable [FP_Shop.offered_items](../contracts/iebs_Faillapop_shop.sol#L77) is not in mixedCase
 
 ../contracts/iebs_Faillapop_shop.sol#L77
 
 
- - [ ] ID-74
+ - [ ] ID-69
 Contract [IFP_NFT](../contracts/interfaces/IFP_NFT.sol#L5-L15) is not in CapWords
 
 ../contracts/interfaces/IFP_NFT.sol#L5-L15
 
 
- - [ ] ID-75
+ - [ ] ID-70
 Contract [IFP_DAO](../contracts/interfaces/IFP_DAO.sol#L12-L63) is not in CapWords
 
 ../contracts/interfaces/IFP_DAO.sol#L12-L63
 
 
- - [ ] ID-76
+ - [ ] ID-71
 Variable [FP_DAO.shop_addr](../contracts/iebs_Faillapop_DAO.sol#L55) is not in mixedCase
 
 ../contracts/iebs_Faillapop_DAO.sol#L55
 
 
- - [ ] ID-77
+ - [ ] ID-72
 Contract [FP_Shop](../contracts/iebs_Faillapop_shop.sol#L16-L438) is not in CapWords
 
 ../contracts/iebs_Faillapop_shop.sol#L16-L438
 
 
- - [ ] ID-78
-Variable [VulnerableBank.distribute_period](../contracts/VulnerableBank.sol#L26) is not in mixedCase
-
-../contracts/VulnerableBank.sol#L26
-
-
- - [ ] ID-79
+ - [ ] ID-73
 Contract [IFP_Vault](../contracts/interfaces/IFP_Vault.sol#L14-L56) is not in CapWords
 
 ../contracts/interfaces/IFP_Vault.sol#L14-L56
 
 
- - [ ] ID-80
+ - [ ] ID-74
 Contract [FP_Vault](../contracts/iebs_Faillapop_vault.sol#L18-L244) is not in CapWords
 
 ../contracts/iebs_Faillapop_vault.sol#L18-L244
 
 
- - [ ] ID-81
+ - [ ] ID-75
 Contract [FP_Token](../contracts/iebs_Faillapop_ERC20.sol#L13-L45) is not in CapWords
 
 ../contracts/iebs_Faillapop_ERC20.sol#L13-L45
 
 
- - [ ] ID-82
-Variable [VulnerableBank.total_invested](../contracts/VulnerableBank.sol#L20) is not in mixedCase
-
-../contracts/VulnerableBank.sol#L20
-
-
- - [ ] ID-83
+ - [ ] ID-76
 Contract [FP_DAO](../contracts/iebs_Faillapop_DAO.sol#L17-L304) is not in CapWords
 
 ../contracts/iebs_Faillapop_DAO.sol#L17-L304
 
 
- - [ ] ID-84
-Variable [VulnerableBank.latest_distribution](../contracts/VulnerableBank.sol#L28) is not in mixedCase
-
-../contracts/VulnerableBank.sol#L28
-
-
- - [ ] ID-85
-Parameter [VulnerableBank.updateConfig(uint256).n_blocks](../contracts/VulnerableBank.sol#L75) is not in mixedCase
-
-../contracts/VulnerableBank.sol#L75
-
-
 ## similar-names
 Impact: Informational
 Confidence: Medium
- - [ ] ID-86
+ - [ ] ID-77
 Variable [FP_DAO.fptContract](../contracts/iebs_Faillapop_DAO.sol#L61) is too similar to [FP_DAO.nftContract](../contracts/iebs_Faillapop_DAO.sol#L59)
 
 ../contracts/iebs_Faillapop_DAO.sol#L61
@@ -982,7 +904,7 @@ Variable [FP_DAO.fptContract](../contracts/iebs_Faillapop_DAO.sol#L61) is too si
 ## too-many-digits
 Impact: Informational
 Confidence: Medium
- - [ ] ID-87
+ - [ ] ID-78
 [FP_Token.constructor()](../contracts/iebs_Faillapop_ERC20.sol#L17-L22) uses literals with too many digits:
 	- [_mint(msg.sender,1000000 * 10 ** decimals())](../contracts/iebs_Faillapop_ERC20.sol#L20)
 
@@ -992,7 +914,7 @@ Confidence: Medium
 ## unused-state
 Impact: Informational
 Confidence: High
- - [ ] ID-88
+ - [ ] ID-79
 [FP_DAO.DEFAULT_QUORUM](../contracts/iebs_Faillapop_DAO.sol#L23) is never used in [FP_DAO](../contracts/iebs_Faillapop_DAO.sol#L17-L304)
 
 ../contracts/iebs_Faillapop_DAO.sol#L23
@@ -1001,7 +923,7 @@ Confidence: High
 ## constable-states
 Impact: Optimization
 Confidence: High
- - [ ] ID-89
+ - [ ] ID-80
 [FP_DAO.quorum](../contracts/iebs_Faillapop_DAO.sol#L63) should be constant 
 
 ../contracts/iebs_Faillapop_DAO.sol#L63
@@ -1010,25 +932,19 @@ Confidence: High
 ## immutable-states
 Impact: Optimization
 Confidence: High
- - [ ] ID-90
+ - [ ] ID-81
 [FP_DAO.fptContract](../contracts/iebs_Faillapop_DAO.sol#L61) should be immutable 
 
 ../contracts/iebs_Faillapop_DAO.sol#L61
 
 
- - [ ] ID-91
+ - [ ] ID-82
 [FP_Shop.daoContract](../contracts/iebs_Faillapop_shop.sol#L87) should be immutable 
 
 ../contracts/iebs_Faillapop_shop.sol#L87
 
 
- - [ ] ID-92
-[VulnerableBank.admin](../contracts/VulnerableBank.sol#L22) should be immutable 
-
-../contracts/VulnerableBank.sol#L22
-
-
- - [ ] ID-93
+ - [ ] ID-83
 [FP_Shop.vaultContract](../contracts/iebs_Faillapop_shop.sol#L85) should be immutable 
 
 ../contracts/iebs_Faillapop_shop.sol#L85
