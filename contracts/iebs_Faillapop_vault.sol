@@ -203,11 +203,20 @@ contract FP_Vault is AccessControl {
         emit RewardsClaimed(msg.sender, amount);
 	}
 
+// Declaración del modificador "noReentrancy"
+bool private locked;
+
+modifier noReentrancy() {
+    require(!locked, "ReentrancyGuard: reentrant call");
+    locked = true;
+    _;
+    locked = false;
+}
 
     /************************************** Internal  *******************************************************/
 
     ///@notice Sets a new maximum claimable amount per user based on the total slashed amount
-    function distributeSlashing(uint amount) internal {
+    function distributeSlashing(uint amount) public noReentrancy {
         totalSlashed += amount;
 
         (, bytes memory data) = nftContract.call(abi.encodeWithSignature("totalPowersellers()"));
