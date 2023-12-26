@@ -5,7 +5,6 @@
 ### [oiebs_Faillapop_shop.sol](../contracts/iebs_Faillapop_shop.sol)
 ### [oiebs_Faillapop_vault.sol](../contracts/iebs_Faillapop_vault.sol)
 ## Interfaces a auditar :
-### _IFP_DAO.sol_
 ### [IFP_DAO.sol](../interfaces/IFP_DAO.sol)
 ### [IFP_NFT.sol](../interfaces/IFP_NFT.sol)
 ### [IFP_Shop.sol](../interfaces/IFP_Shop.sol)
