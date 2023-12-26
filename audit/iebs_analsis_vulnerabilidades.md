@@ -1,18 +1,15 @@
 # SMART CONTRACT  
 ## Contratos a auditar:
-[oiebs_Faillapop_DAO.sol]([(../contracts/iebs_Faillapop_DAO.sol)
-
-[oiebs_Faillapop_DAO.sol](../contracts/iebs_Faillapop_DAO.sol)
-
-### _iebs_Faillapop_ERC20.sol_
-### _iebs_Faillapop_shop.sol_
-### _iebs_Faillapop_vault.sol_ 
+### [oiebs_Faillapop_DAO.sol](../contracts/iebs_Faillapop_DAO.sol)
+### [oiebs_Faillapop_ERC20.sol](../contracts/iebs_Faillapop_ERC20.sol)
+### [oiebs_Faillapop_shop.sol](../contracts/iebs_Faillapop_shop.sol)
+### [oiebs_Faillapop_vault.sol](../contracts/iebs_Faillapop_vault.sol)
 ## Interfaces a auditar :
 ### _IFP_DAO.sol_
-### _IFP_NFT.sol_
-### _IFP_Shop.sol_
-### _IFP_Vault.sol_
-
+### [IFP_DAO.sol](../interfaces/IFP_DAO.sol)
+### [IFP_NFT.sol](../interfaces/IFP_NFT.sol)
+### [IFP_Shop.sol](../interfaces/IFP_Shop.sol)
+### [FP_Vault.sol](../interfaces/IFP_Vault.sol)
 
 
 
