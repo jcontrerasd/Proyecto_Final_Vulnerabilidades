@@ -1,6 +1,9 @@
 # SMART CONTRACT  
 ## Contratos a auditar:
-### _oiebs_Faillapop_DAO.sol_
+[oiebs_Faillapop_DAO.sol_]([(../contracts/iebs_Faillapop_DAO.sol)
+
+[FP_Shop.closeSale(uint256,bool)](../contracts/iebs_Faillapop_shop.sol) sends eth to arbitrary user
+
 ### _iebs_Faillapop_ERC20.sol_
 ### _iebs_Faillapop_shop.sol_
 ### _iebs_Faillapop_vault.sol_ 
