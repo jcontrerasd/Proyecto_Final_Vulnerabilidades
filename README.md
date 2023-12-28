@@ -16,12 +16,7 @@
 
 
   
+## [slither ⚙️](https://github.com/jcontrerasd/Proyecto_Final_Vulnerabilidades/blob/main/audit/iebs_analisis_vulnerabilidades.md)
 
-<summary>[slither ⚙️]</summary>
-
-```js
-slither . --checklist --show-ignored-findings --markdown-root ../ > ./audit/iebs_analisis_vulnerabilidades.md
-
-
-```
+* ```js slither . --checklist --show-ignored-findings --markdown-root ../ > ./audit/iebs_analisis_vulnerabilidades.md ```
 
