@@ -11,8 +11,6 @@
 ### [FP_Vault.sol](../contracts/interfaces/IFP_Vault.sol)
 
 
-
-
 Summary
  - [arbitrary-send-eth](#arbitrary-send-eth) (2 results) (High)
  - [reentrancy-eth](#reentrancy-eth) (5 results) (High)
@@ -409,16 +407,6 @@ Confidence: Medium
 Impact: Low
 Confidence: Medium
  - [ ] ID-17
-Reentrancy in [FP_Vault.distributeSlashing(uint256)](../contracts/iebs_Faillapop_vault.sol#L210-L218):
-	External calls:
-	- [(data) = nftContract.call(abi.encodeWithSignature(totalPowersellers()))](../contracts/iebs_Faillapop_vault.sol#L213)
-	State variables written after the call(s):
-	- [max_claimable_amount = newMax](../contracts/iebs_Faillapop_vault.sol#L217)
-
-../contracts/iebs_Faillapop_vault.sol#L210-L218
-
-
- - [ ] ID-18
 Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L196-L214):
 	External calls:
 	- [sellerWins(itemId)](../contracts/iebs_Faillapop_DAO.sol#L207)
@@ -429,7 +417,7 @@ Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L
 ../contracts/iebs_Faillapop_DAO.sol#L196-L214
 
 
- - [ ] ID-19
+ - [ ] ID-18
 Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L196-L214):
 	External calls:
 	- [buyerWins(itemId)](../contracts/iebs_Faillapop_DAO.sol#L204)
@@ -438,6 +426,16 @@ Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L
 	- [disputeResult[disputeId] = 1](../contracts/iebs_Faillapop_DAO.sol#L205)
 
 ../contracts/iebs_Faillapop_DAO.sol#L196-L214
+
+
+ - [ ] ID-19
+Reentrancy in [FP_Vault.distributeSlashing(uint256)](../contracts/iebs_Faillapop_vault.sol#L219-L227):
+	External calls:
+	- [(data) = nftContract.call(abi.encodeWithSignature(totalPowersellers()))](../contracts/iebs_Faillapop_vault.sol#L222)
+	State variables written after the call(s):
+	- [max_claimable_amount = newMax](../contracts/iebs_Faillapop_vault.sol#L226)
+
+../contracts/iebs_Faillapop_vault.sol#L219-L227
 
 
  - [ ] ID-20
@@ -470,7 +468,7 @@ Reentrancy in [FP_DAO.endDispute(uint256)](../contracts/iebs_Faillapop_DAO.sol#L
 Reentrancy in [FP_Vault.doSlash(address)](../contracts/iebs_Faillapop_vault.sol#L154-L163):
 	External calls:
 	- [distributeSlashing(amount)](../contracts/iebs_Faillapop_vault.sol#L160)
-		- [(data) = nftContract.call(abi.encodeWithSignature(totalPowersellers()))](../contracts/iebs_Faillapop_vault.sol#L213)
+		- [(data) = nftContract.call(abi.encodeWithSignature(totalPowersellers()))](../contracts/iebs_Faillapop_vault.sol#L222)
 	Event emitted after the call(s):
 	- [Slashed(badUser,amount)](../contracts/iebs_Faillapop_vault.sol#L162)
 
@@ -793,19 +791,19 @@ Low level call in [FP_Shop.reimburse(uint256)](../contracts/iebs_Faillapop_shop.
 
 
  - [ ] ID-59
-Low level call in [FP_Vault.distributeSlashing(uint256)](../contracts/iebs_Faillapop_vault.sol#L210-L218):
-	- [(data) = nftContract.call(abi.encodeWithSignature(totalPowersellers()))](../contracts/iebs_Faillapop_vault.sol#L213)
+Low level call in [FP_Vault.distributeSlashing(uint256)](../contracts/iebs_Faillapop_vault.sol#L219-L227):
+	- [(data) = nftContract.call(abi.encodeWithSignature(totalPowersellers()))](../contracts/iebs_Faillapop_vault.sol#L222)
 
-../contracts/iebs_Faillapop_vault.sol#L210-L218
+../contracts/iebs_Faillapop_vault.sol#L219-L227
 
 
 ## missing-inheritance
 Impact: Informational
 Confidence: High
  - [ ] ID-60
-[FP_Vault](../contracts/iebs_Faillapop_vault.sol#L18-L244) should inherit from [IFP_Vault](../contracts/interfaces/IFP_Vault.sol#L14-L56)
+[FP_Vault](../contracts/iebs_Faillapop_vault.sol#L18-L253) should inherit from [IFP_Vault](../contracts/interfaces/IFP_Vault.sol#L14-L56)
 
-../contracts/iebs_Faillapop_vault.sol#L18-L244
+../contracts/iebs_Faillapop_vault.sol#L18-L253
 
 
 ## naming-convention
@@ -890,9 +888,9 @@ Contract [IFP_Vault](../contracts/interfaces/IFP_Vault.sol#L14-L56) is not in Ca
 
 
  - [ ] ID-74
-Contract [FP_Vault](../contracts/iebs_Faillapop_vault.sol#L18-L244) is not in CapWords
+Contract [FP_Vault](../contracts/iebs_Faillapop_vault.sol#L18-L253) is not in CapWords
 
-../contracts/iebs_Faillapop_vault.sol#L18-L244
+../contracts/iebs_Faillapop_vault.sol#L18-L253
 
 
  - [ ] ID-75
